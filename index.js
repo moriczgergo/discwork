@@ -11,7 +11,7 @@ function add (regex, action) {
         r,
         action
       })
-    });
+    }.bind(this));
   } else {
     if (!(regex instanceof RegExp)) {
       throw new Error('Passed regex is not an instance of RegExp.')
