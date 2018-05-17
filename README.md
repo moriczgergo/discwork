@@ -42,7 +42,7 @@ Adds a command.
 
 #### Parameters
 
- * regex - The command RegExp
+ * regex - The command RegExp, or an array of RegExpes
  * action - The command handler function
 
 #### Example

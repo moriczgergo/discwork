@@ -1,14 +1,27 @@
 var Discord = require('discord.js')
 
 function add (regex, action) {
-  if (!(regex instanceof RegExp)) {
-    throw new Error('Passed regex is not an instance of RegExp.')
+  if (Array.isArray(regex)) {
+    regex.forEach(function(r) {
+      if (!(r instanceof RegExp)) {
+        throw new Error('Passed regex is not an instance of RegExp.')
+      }
+    
+      this.commands.push({
+        r,
+        action
+      })
+    });
+  } else {
+    if (!(regex instanceof RegExp)) {
+      throw new Error('Passed regex is not an instance of RegExp.')
+    }
+  
+    this.commands.push({
+      regex,
+      action
+    })
   }
-
-  this.commands.push({
-    regex,
-    action
-  })
 }
 
 function done () {
