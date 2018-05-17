@@ -8,7 +8,7 @@ function add (regex, action) {
       }
     
       this.commands.push({
-        r,
+        regex: r,
         action
       })
     }.bind(this));
